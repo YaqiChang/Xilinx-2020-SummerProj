@@ -1,0 +1,108 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Jul 22 15:59:40 2020
+# Process ID: 22456
+# Current directory: D:/temp/xilinx/lesson3_0722/Lab_7_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21632 D:\temp\xilinx\lesson3_0722\Lab_7_1\Lab_7_1.xpr
+# Log file: D:/temp/xilinx/lesson3_0722/Lab_7_1/vivado.log
+# Journal file: D:/temp/xilinx/lesson3_0722/Lab_7_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+synth_design -rtl -name rtl_1
+close_design
+open_run synth_1 -name synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+synth_design -rtl -name rtl_1
+set_property package_pin "" [get_ports [list  {state[0]}]]
+place_ports clock H4
+place_ports a A5
+place_ports f A4
+set_property package_pin "" [get_ports [list  {state[1]}]]
+place_ports reset A10
+place_ports g B3
+set_property IOSTANDARD LVCMOS33 [get_ports [list {state[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list clock]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list f]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list a]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {state[1]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list reset]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list g]]
+set_property PULLTYPE NONE [get_ports [list {state[0]}]]
+set_property PULLTYPE PULLDOWN [get_ports [list f]]
+set_property PULLTYPE PULLDOWN [get_ports [list g]]
+file mkdir D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.srcs/constrs_1/new
+close [ open D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.srcs/constrs_1/new/system.xdc w ]
+add_files -fileset constrs_1 D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.srcs/constrs_1/new/system.xdc
+set_property target_constrs_file D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.srcs/constrs_1/new/system.xdc [current_fileset -constrset]
+save_constraints -force
+set_property SLEW SLOW [get_ports [list g]]
+save_constraints
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+reset_run impl_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+refresh_design
+reset_run impl_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+current_design synth_1
+set_property package_pin "" [get_ports [list  {state[0]}]]
+place_ports clock H4
+place_ports a A5
+place_ports f A4
+place_ports reset A10
+set_property IOSTANDARD LVCMOS33 [get_ports [list {state[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list clock]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list a]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list f]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {state[1]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list reset]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list g]]
+set_property OFFCHIP_TERM NONE [get_ports [list clock]]
+set_property PULLTYPE NONE [get_ports [list clock]]
+refresh_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_design
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_run synth_1 -name synth_1
+open_run impl_1
+create_clock -period 10.000 -name clock -waveform {0.000 5.000} clock
+save_constraints
+reset_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.runs/impl_1/Lab_7_1.bit} [get_hw_devices xc7s15_0]
+current_hw_device [get_hw_devices xc7s15_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s15_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7s15_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s15_0]
+set_property PROGRAM.FILE {D:/temp/xilinx/lesson3_0722/Lab_7_1/Lab_7_1.runs/impl_1/Lab_7_1.bit} [get_hw_devices xc7s15_0]
+program_hw_devices [get_hw_devices xc7s15_0]
+refresh_hw_device [lindex [get_hw_devices xc7s15_0] 0]
+report_clock_interaction -delay_type min_max -significant_digits 3 -name timing_1
+current_design synth_1
+refresh_design
